@@ -17,14 +17,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-pp.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
 // Define API routes here
 
 //Database connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/dbRegulate");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/PetShop");
 console.log("Connection state: " + mongoose.connection.readyState);
 
 
